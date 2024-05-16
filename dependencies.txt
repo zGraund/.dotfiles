@@ -1,0 +1,14 @@
+fzf
+gcc
+git
+jq
+make
+ripgrep
+stow
+tree
+tmux
+unzip
+wget
+xclip
+zip
+zsh
