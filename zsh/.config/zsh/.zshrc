@@ -120,6 +120,8 @@ bindkey -M vicmd '^e' edit-command-line
 
 # Add plugins here
 source_if_exist "$XDG_CONFIG_HOME/aliases"
+source_if_exist "command-not-found.zsh"
+
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "romkatv/powerlevel10k"
 zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
