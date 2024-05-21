@@ -39,3 +39,6 @@ setw -g window-status-separator ""
 setw -g window-status-style "NONE,fg=#{@theme_light_gray},bg=#{@theme_black}"
 setw -g window-status-format "#[fg=#{@theme_black},bg=#{@theme_black}]#[default] #I  #W #F #[fg=#{@theme_black},bg=#{@theme_black}]"
 setw -g window-status-current-format "#[fg=#{@theme_black},bg=#{@theme_gray}]#[fg=#{@theme_blue},bg=#{@theme_gray},bold] #I  #W #F #[fg=#{@theme_gray},bg=#{@theme_black}]"
+
+# ssh icon
+# #{?#{==:#{pane_current_command},ssh},󰣀,}
