@@ -17,7 +17,10 @@ path=(
 	"$BIN_HOME" # user bin
 	"$GOPATH/bin"
 	"/usr/local/go/bin"
-	$path
+	"$path"
 )
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
+if [[ -z $NVM_BIN && -z $NVM_INC ]]; then
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+fi

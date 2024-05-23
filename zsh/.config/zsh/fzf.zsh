@@ -9,6 +9,10 @@ source_if_exist "/usr/share/doc/fzf/examples/key-bindings.zsh"
 # display hidden files, and exclude the '.git' directory.
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^F' fzf-completion
+bindkey '^I' $fzf_default_completion
+
 # Colorscheme
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=fg:#c0caf5,bg:-1,hl:#ff9e64 \

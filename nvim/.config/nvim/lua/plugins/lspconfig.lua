@@ -103,7 +103,7 @@ return { -- LSP Configuration & Plugins
 
 		local lsp_tools = require("custom.lsp_tools")
 		local ensure_installed = lsp_tools.get_to_install()
-		local servers = vim.tbl_values(lsp_tools.get_tools_by_ft("lsp"))
+		local servers = lsp_tools.get_tools_by_ft("lsp", false)
 
 		require("mason").setup({ ui = { border = "rounded" } })
 

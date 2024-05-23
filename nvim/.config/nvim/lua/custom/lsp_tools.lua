@@ -48,10 +48,23 @@ local tools_by_filetypes = {
 		formatters = { "goimports", "gofumpt" },
 		linters = { "golangcilint" },
 	},
+	json = {
+		lsp = { jsonls = {} },
+		formatters = {},
+	},
+	sh = {
+		lsp = {
+			bashls = {
+				filetypes = { "sh", "zsh" },
+			},
+		},
+	},
 }
 
 local map_to_mason = {
 	golangcilint = "golangci-lint",
+	jsonls = "json-lsp",
+	bashls = "bash-language-server",
 }
 
 local function get_to_install()
@@ -79,15 +92,31 @@ local function get_to_install()
 	return tools_to_install
 end
 
-local function get_tools_by_ft(wanted)
+---A bad implementation of a getter for the lsp tools
+---specify a type of tool and if the result need to
+---include a ft as key
+---@param wanted string
+---@param include_ft? boolean
+---@return table
+local function get_tools_by_ft(wanted, include_ft)
 	local result = {}
 	for ft, tools in pairs(tools_by_filetypes) do
 		if tools[wanted] and next(tools[wanted]) ~= nil then
-			result[ft] = vim.tbl_deep_extend("force", {}, tools[wanted])
+			if include_ft then
+				result[ft] = tools[wanted]
+			else
+				for tool, settings in pairs(tools[wanted]) do
+					result[tool] = settings
+				end
+			end
 		end
 	end
 	return result
 end
+
+-- local test = vim.tbl_values(get_tools_by_ft("lsp", false))
+-- local test2 = get_tools_by_ft("lsp", false)
+-- require("custom.utils").printTable(test2)
 
 return {
 	get_tools_by_ft = get_tools_by_ft,
