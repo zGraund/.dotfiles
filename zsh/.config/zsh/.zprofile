@@ -17,7 +17,9 @@ path=(
 	"$BIN_HOME" # user bin
 	"$GOPATH/bin"
 	"/usr/local/go/bin"
-	"$path"
+
+	# WARN: DON'T quote the following path variable
+	$path
 )
 
 export NVM_DIR="$XDG_DATA_HOME/nvm"
