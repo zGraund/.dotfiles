@@ -1,18 +1,17 @@
 --[[
---	TABLE FORMAT
---	<language> = {
---		lsp = {
---			"<lsp_server>" = {
---				cmd = { ... },          - Override the default command used to start the server
---				filetypes = { ... },    - Override the default list of associated filetypes for the server
---				capabilities = { ... }, - Override fields in capabilities. Can be used to disable certain LSP features.
---				settings = { ... },     - Override the default settings passed when initializing the server.
---			}
---		},
---		formatters = { "<formatter_1>", "<formatter_2>" },
---		linters = { "<linter>" },
---		dap = { "<dap_server>" },
---	}
+<language> = {
+	lsp = {
+		"<lsp_server>" = {
+			cmd = { ... },          - Override the default command used to start the server
+			filetypes = { ... },    - Override the default list of associated filetypes for the server
+			capabilities = { ... }, - Override fields in capabilities. Can be used to disable certain LSP features.
+			settings = { ... },     - Override the default settings passed when initializing the server.
+		}
+	},
+	formatters = { "<formatter_1>", "<formatter_2>" },
+	linters = { "<linter>" },
+	dap = { "<dap_server>" },
+}
 --]]
 local tools_by_filetypes = {
 	lua = {
@@ -113,10 +112,6 @@ local function get_tools_by_ft(wanted, include_ft)
 	end
 	return result
 end
-
--- local test = vim.tbl_values(get_tools_by_ft("lsp", false))
--- local test2 = get_tools_by_ft("lsp", false)
--- require("custom.utils").printTable(test2)
 
 return {
 	get_tools_by_ft = get_tools_by_ft,
