@@ -1,6 +1,5 @@
-local formatters = require("custom.lsp_tools").get_tools_by_ft("formatters")
+local formatters = require("custom.lsp_tools").get_tools_by_ft("formatters", true)
 return {
-	-- Autoformat
 	"stevearc/conform.nvim",
 	lazy = false,
 	keys = {

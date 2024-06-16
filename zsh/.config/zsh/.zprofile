@@ -13,7 +13,7 @@ export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 
 # PATH
 export GOPATH="$XDG_DATA_HOME/go"
-path=(
+export path=(
 	"$BIN_HOME" # user bin
 	"$GOPATH/bin"
 	"/usr/local/go/bin"
