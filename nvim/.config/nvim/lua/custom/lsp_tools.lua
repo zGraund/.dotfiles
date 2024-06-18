@@ -53,9 +53,7 @@ local tools_by_filetypes = {
 	},
 	sh = {
 		lsp = {
-			bashls = {
-				filetypes = { "sh", "zsh" },
-			},
+			bashls = {},
 		},
 	},
 }

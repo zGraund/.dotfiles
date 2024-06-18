@@ -14,6 +14,7 @@ return { -- LSP Configuration & Plugins
 				},
 			},
 		},
+		-- TODO: update to nvim 0.10 and switch to lazydev
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	opts = {
