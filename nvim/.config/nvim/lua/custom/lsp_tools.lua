@@ -22,6 +22,7 @@ local tools_by_filetypes = {
 						completion = {
 							callSnippet = "Replace",
 						},
+						hint = { enable = true },
 					},
 				},
 			},
@@ -40,6 +41,15 @@ local tools_by_filetypes = {
 							shadow = true,
 							unusedvariable = true,
 						},
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
 					},
 				},
 			},
@@ -49,7 +59,7 @@ local tools_by_filetypes = {
 	},
 	json = {
 		lsp = { jsonls = {} },
-		formatters = {},
+		formatters = { "prettier" },
 	},
 	sh = {
 		lsp = {
@@ -71,7 +81,7 @@ local function get_to_install()
 			vim.list_extend(tools_to_install, vim.tbl_keys(tools.lsp))
 		end
 		if tools.formatters then
-			vim.list_extend(tools_to_install, vim.tbl_flatten(tools.formatters))
+			vim.list_extend(tools_to_install, vim.iter(tools.formatters):flatten():totable())
 		end
 		if tools.linters then
 			vim.list_extend(tools_to_install, tools.linters)
