@@ -13,5 +13,6 @@ Still work in progress
 
 [^1]: Depending on the package manager some binaries might need to be installed or configured manually, make sure that:
     1. Neovim version is at least v0.9.x
-    3. The path for fzf in `nvim/fzf.zsh` is correct
-    2. On Ubuntu/Debian batcat is symlinked to bat `ln -s /usr/bin/batcat ~/.local/bin/bat`
+    2. The path for fzf in `nvim/fzf.zsh` is correct
+    3. On Ubuntu/Debian batcat is symlinked to bat `ln -s /usr/bin/batcat ~/.local/bin/bat`
+    4. On Ubuntu/Debian fd-find is symlinked to fd `ln -s $(which fdfind) ~/.local/bin/fd`

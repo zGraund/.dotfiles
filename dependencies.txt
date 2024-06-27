@@ -1,5 +1,6 @@
 bat
 fzf
+fd-find
 gcc
 git
 jq
