@@ -14,8 +14,6 @@ return { -- LSP Configuration & Plugins
 				},
 			},
 		},
-		-- TODO: update to nvim 0.10 and switch to lazydev
-		{ "folke/neodev.nvim", opts = {} },
 	},
 	opts = {
 		-- 	update_in_insert = true,
@@ -73,7 +71,7 @@ return { -- LSP Configuration & Plugins
 				-- The following autocommand is used to enable inlay hints
 				if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
 					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 					end, "[T]oggle Inlay [H]ints")
 				end
 			end,
