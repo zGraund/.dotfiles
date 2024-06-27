@@ -35,6 +35,9 @@ return {
 		end,
 		on_highlights = function(hl, _)
 			hl["@keyword.import"] = hl["@keyword"]
+			hl.MatchParen = {
+				bold = true,
+			}
 		end,
 	},
 	init = function()
