@@ -161,5 +161,7 @@ cursor_mode() {
 
 cursor_mode
 
+# TODO: p10k is in life support, switch to oh-my-posh in the future
+
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/p10k.zsh.
 [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
