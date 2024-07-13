@@ -4,6 +4,10 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
+	-- event = { "VeryLazy" },
+	event = "User FileOpened",
+	lazy = vim.fn.argc(-1) == 0,
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	opts = {
 		ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
 		auto_install = true,

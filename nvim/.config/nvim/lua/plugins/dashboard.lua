@@ -32,7 +32,7 @@ return {
 
 		for _, button in ipairs(opt.config.center) do
 			button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-			button.key_format = "  %s"
+			-- button.key_format = "  %s"
 		end
 
 		-- open dashboard after closing lazy

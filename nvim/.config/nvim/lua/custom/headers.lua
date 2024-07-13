@@ -1,5 +1,5 @@
 local headers = {
-	-- we can do a bit of trolling
+	-- we do a bit of trolling
 	["vscode"] = {
 		logo = {
 			"",
@@ -35,6 +35,7 @@ local headers = {
 ---Populate table with empty strings
 ---@param length number
 ---@return table
+---@diagnostic disable-next-line: unused-function, unused-local
 local function empty_table(length)
 	local empty_tbl = {}
 	if length == 0 then
@@ -44,6 +45,20 @@ local function empty_table(length)
 		table.insert(empty_tbl, "")
 	end
 	return empty_tbl
+end
+
+---Insert pad top and bottom in a list-like table
+---the pad is a 0 len string
+---@param dest table
+---@param top number
+---@param bot number
+local function pad_list(dest, top, bot)
+	for _ = 1, top do
+		table.insert(dest, 1, "")
+	end
+	for _ = 1, bot do
+		table.insert(dest, "")
+	end
 end
 
 ---Get the selected header or a random one
@@ -59,13 +74,14 @@ local function get_header(name)
 	elseif headers[name] then
 		header = headers[name]
 	else
-		header = headers[0]
+		-- i couldn't find a better way to get the first entry in the table
+		for _, h in pairs(headers) do
+			header = h
+			break
+		end
 	end
-	local top = empty_table(header.padTop)
-	local bot = empty_table(header.padBot)
-	vim.list_extend(top, header.logo)
-	vim.list_extend(top, bot)
-	return top
+	pad_list(header.logo, header.padTop, header.padBot)
+	return header.logo
 end
 
 return { get_header = get_header }

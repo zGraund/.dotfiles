@@ -1,14 +1,16 @@
 local formatters = require("custom.lsp_tools").get_tools_by_ft("formatters", true)
 return {
 	"stevearc/conform.nvim",
-	lazy = false,
+	-- lazy = false,
+	event = { "BufWritePre" },
+	cmd = "ConformInfo",
 	keys = {
 		{
 			"<leader>f",
 			function()
 				require("conform").format({ async = true, lsp_fallback = true })
 			end,
-			mode = "",
+			mode = { "n", "v" },
 			desc = "[F]ormat buffer",
 		},
 	},

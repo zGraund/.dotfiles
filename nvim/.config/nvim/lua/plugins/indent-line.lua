@@ -1,5 +1,6 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
+	event = "User FileOpened",
 	dependencies = {
 		"HiPhish/rainbow-delimiters.nvim",
 	},
@@ -16,7 +17,21 @@ return {
 		}
 		local hooks = require("ibl.hooks")
 		require("ibl").setup({
-			exclude = { filetypes = { "dashboard" } },
+			-- exclude = { filetypes = { "dashboard" } },
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+				},
+			},
 			scope = { highlight = highlight },
 			indent = { char = "│" },
 		})
