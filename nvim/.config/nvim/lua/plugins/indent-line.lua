@@ -32,7 +32,11 @@ return {
 					"toggleterm",
 				},
 			},
-			scope = { highlight = highlight },
+			scope = {
+				show_start = false,
+				show_end = false,
+				highlight = highlight,
+			},
 			indent = { char = "│" },
 		})
 		hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)

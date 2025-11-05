@@ -57,13 +57,29 @@ local tools_by_filetypes = {
 		formatters = { "goimports", "gofumpt" },
 		linters = { "golangcilint" },
 	},
+	html = { formatters = { "prettierd" } },
+	css = { formatters = { "prettierd" } },
+	-- javascript = { formatters = { "prettierd" }, linters = { "eslint_d" } },
+	javascript = { formatters = { "prettierd" } },
+	-- typescript = { formatters = { "prettierd" }, linters = { "eslint_d" } },
+	typescript = { formatters = { "prettierd" } },
 	json = {
-		lsp = { jsonls = {} },
-		formatters = { "prettier" },
+		formatters = { "prettierd" },
 	},
-	sh = {
+	jsonc = {
+		formatters = { "prettierd" },
+	},
+	python = {
 		lsp = {
-			bashls = {},
+			ruff = {
+				init_options = {
+					settings = {
+						-- Ruff language server settings go here
+						-- showSyntaxErrors = false,
+						lint = { enable = false },
+					},
+				},
+			},
 		},
 	},
 }
@@ -72,6 +88,7 @@ local map_to_mason = {
 	golangcilint = "golangci-lint",
 	jsonls = "json-lsp",
 	bashls = "bash-language-server",
+	ts_ls = "typescript-language-server",
 }
 
 local function get_to_install()

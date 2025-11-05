@@ -19,5 +19,9 @@ return {
 			-- visual mode
 			{ "<leader>h", desc = "Git [H]unk", mode = "v" },
 		},
+		triggers = {
+			{ "<auto>", mode = "nixsotc" },
+			{ "s", mode = { "n", "v" } },
+		},
 	},
 }

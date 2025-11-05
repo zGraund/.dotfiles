@@ -21,7 +21,14 @@ return {
 					["<C-k>"] = actions.move_selection_previous,
 					["<C-p>"] = actions.cycle_history_prev,
 					["<C-n>"] = actions.cycle_history_next,
+					["<c-x>"] = actions.delete_buffer + actions.move_to_top,
 				},
+				n = {
+					["<c-x>"] = actions.delete_buffer,
+				},
+			},
+			file_ignore_patterns = {
+				".git",
 			},
 		},
 		-- pickers = {}
@@ -35,7 +42,7 @@ return {
 		{
 			"<leader>sa",
 			function()
-				builtin.find_files({ hidden = true })
+				builtin.find_files({ hidden = true, no_ignore = true })
 			end,
 			desc = "[S]earch [A]ll files",
 		},

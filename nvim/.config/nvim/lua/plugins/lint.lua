@@ -4,7 +4,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local lint = require("lint")
-		local linters = require("custom.lsp_tools").get_tools_by_ft("linters")
+		local linters = require("custom.lsp_tools").get_tools_by_ft("linters", true)
 		lint.linters_by_ft = linters
 
 		-- added TextChanged to lint every time the buf is modified (need testing)

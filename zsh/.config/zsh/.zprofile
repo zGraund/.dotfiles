@@ -12,10 +12,17 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export DOTNET_CLI_HOME="$XDG_DATA_HOME/dotnet"
 
 # PATH
+# go
 export GOPATH="$XDG_DATA_HOME/go"
+
+# rustup and cargo
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+
 export path=(
 	"$BIN_HOME" # user bin
 	"$GOPATH/bin"
+	"$CARGO_HOME/bin"
 	"/usr/local/go/bin"
 
 	# WARN: DON'T quote the following path variable

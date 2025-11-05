@@ -137,7 +137,7 @@ cursor_mode() {
     # 6  ⇒  steady bar, xterm.
 
     cursor_block='\e[2 q'
-    cursor_beam='\e[6 q'
+    cursor_beam='\e[5 q'
 
     function zle-keymap-select {
         if [[ ${KEYMAP} == vicmd ]] ||
