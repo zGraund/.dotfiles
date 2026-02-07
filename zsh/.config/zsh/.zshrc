@@ -126,6 +126,7 @@ source_if_exist "fzf.zsh"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "romkatv/powerlevel10k"
 zsh_add_plugin "zdharma-continuum/fast-syntax-highlighting"
+FAST_HIGHLIGHT_STYLES[comment]='fg=8,bold'
 
 cursor_mode() {
     # 0  ⇒  blinking block.
