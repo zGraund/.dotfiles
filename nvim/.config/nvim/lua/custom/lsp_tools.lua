@@ -82,6 +82,13 @@ local tools_by_filetypes = {
 			},
 		},
 	},
+	elixir = {
+		lsp = {
+			elixirls = {
+				cmd = { "~/.local/share/nvim/mason/bin/elixir-ls" },
+			},
+		},
+	},
 }
 
 local map_to_mason = {
